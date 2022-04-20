@@ -15,6 +15,9 @@
                 </li>
             </ul>
             @else
+            <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                <link-component></link-component>
+            </div>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
