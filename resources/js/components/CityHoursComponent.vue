@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2022-4-20</td>
-          <td>30&deg;C</td>
-          <td>shine</td>
+        <tr v-for="item in list" :key="item.dt">
+          <td>{{ item.dt_txt }}</td>
+          <td>{{ item.main.temp }}&deg;C</td>
+          <td>{{ item.weather[0].main }}</td>
         </tr>
       </tbody>
     </table>
