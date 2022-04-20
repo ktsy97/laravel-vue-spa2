@@ -5375,7 +5375,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    this.getHours();
+  },
+  data: function data() {
+    return {
+      city: null,
+      //地域名
+      list: []
+    };
+  },
+  methods: {
+    getHours: function getHours() {
+      axios.get("api/hours").then(function (response) {
+        this.city = response.data.city.name;
+        this.list = response.data.list;
+      }.bind(this))["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 

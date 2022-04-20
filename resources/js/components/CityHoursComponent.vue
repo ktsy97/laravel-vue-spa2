@@ -21,5 +21,29 @@
 </template>
 <script>
 export default {
+  created() {
+    this.getHours();
+  },
+  data() {
+    return {
+      city: null, //地域名
+      list: [],
+    };
+  },
+  methods: {
+    getHours() {
+      axios
+        .get("api/hours")
+        .then(
+          function (response) {
+            this.city = response.data.city.name;
+            this.list = response.data.list;
+          }.bind(this)
+        )
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
