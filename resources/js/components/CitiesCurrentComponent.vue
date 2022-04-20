@@ -4,40 +4,48 @@
       <div class="col">
         <div class="card text-center" style="max-width: 36rem">
           <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
+            <h5 class="card-title mb-3">{{ city }}</h5>
+            <p class="card-text mb-2">気温：{{ temp }}&deg;C</p>
+            <p class="card-text mb-2">{{ condition.main }}</p>
+            <router-link v-bind:to="{ name: 'city.hours' }">
+              <button class="btn btn-success">もっと見る</button>
+            </router-link>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card text-center" style="max-width: 36rem">
           <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
+            <h5 class="card-title mb-3">{{ city }}</h5>
+            <p class="card-text mb-2">気温：{{ temp }}&deg;C</p>
+            <p class="card-text mb-2">{{ condition.main }}</p>
+            <router-link v-bind:to="{ name: 'city.hours' }">
+              <button class="btn btn-success">もっと見る</button>
+            </router-link>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card text-center" style="max-width: 36rem">
           <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
+            <h5 class="card-title mb-3">{{ city }}</h5>
+            <p class="card-text mb-2">気温：{{ temp }}&deg;C</p>
+            <p class="card-text mb-2">{{ condition.main }}</p>
+            <router-link v-bind:to="{ name: 'city.hours' }">
+              <button class="btn btn-success">もっと見る</button>
+            </router-link>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card text-center" style="max-width: 36rem">
           <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
+            <h5 class="card-title mb-3">{{ city }}</h5>
+            <p class="card-text mb-2">気温：{{ temp }}&deg;C</p>
+            <p class="card-text mb-2">{{ condition.main }}</p>
+            <router-link v-bind:to="{ name: 'city.hours' }">
+              <button class="btn btn-success">もっと見る</button>
+            </router-link>
           </div>
         </div>
       </div>
