@@ -1,6 +1,7 @@
 require('./bootstrap');
 import VueRouter from 'vue-router';
 import CitiesCurrentComponent from "./components/CitiesCurrentComponent";
+import CityHoursComponent from "./components/CityHoursComponent";
 
 window.Vue = require('vue').default;
 
@@ -16,6 +17,11 @@ const router = new VueRouter({
             path: '/cities',
             name: 'cities.current',
             component: CitiesCurrentComponent
+        },
+        {
+            path: '/hours',
+            name: 'city.hours',
+            component: CityHoursComponent
         },
     ]
 });
