@@ -21,6 +21,9 @@
 </template>
 <script>
 export default {
+  props: {
+    cityName: String,
+  },
   created() {
     this.getHours();
   },
@@ -28,12 +31,17 @@ export default {
     return {
       city: null, //地域名
       list: [],
+      // cityName: 'Nagoya',
     };
   },
   methods: {
     getHours() {
       axios
-        .get("api/hours")
+        .get("api/hours", {
+          params: {
+            cityName: this.cityName,
+          }
+        })
         .then(
           function (response) {
             this.city = response.data.city.name;

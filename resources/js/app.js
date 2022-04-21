@@ -19,9 +19,10 @@ const router = new VueRouter({
             component: CitiesCurrentComponent
         },
         {
-            path: '/hours',
+            path: '/hour',
             name: 'city.hours',
-            component: CityHoursComponent
+            component: CityHoursComponent,
+            props: true,
         },
     ]
 });

@@ -31,10 +31,10 @@ class WeatherController extends Controller
         return response()->json($data);
     }
 
-    public function show()
+    public function show(Request $request)
     {
 
-        $cityName = 'Tokyo';
+        $cityName = $request->input('cityName');
         $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
         $url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 

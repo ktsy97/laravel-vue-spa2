@@ -8,7 +8,7 @@
             <h5 class="card-title mb-3">{{ city.name }}</h5>
             <p class="card-text mb-2">気温：{{ city.main.temp }}&deg;C</p>
             <p class="card-text mb-2">{{ city.weather[0].main }}</p>
-            <router-link v-bind:to="{ name: 'city.hours' }">
+            <router-link v-bind:to="{ name: 'city.hours', params : { cityName: city.name } }">
               <button class="btn btn-success">もっと見る</button>
             </router-link>
           </div>

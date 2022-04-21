@@ -5341,6 +5341,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    cityName: String
+  },
   created: function created() {
     this.getHours();
   },
@@ -5348,12 +5351,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       city: null,
       //地域名
-      list: []
+      list: [] // cityName: 'Nagoya',
+
     };
   },
   methods: {
     getHours: function getHours() {
-      axios.get("api/hours").then(function (response) {
+      axios.get("api/hours", {
+        params: {
+          cityName: this.cityName
+        }
+      }).then(function (response) {
         this.city = response.data.city.name;
         this.list = response.data.list;
       }.bind(this))["catch"](function (error) {
@@ -5445,9 +5453,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     name: 'cities.current',
     component: _components_CitiesCurrentComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }, {
-    path: '/hours',
+    path: '/hour',
     name: 'city.hours',
-    component: _components_CityHoursComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+    component: _components_CityHoursComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    props: true
   }]
 });
 var app = new Vue({
@@ -28272,11 +28281,22 @@ var render = function () {
                     _vm._v(_vm._s(city.weather[0].main)),
                   ]),
                   _vm._v(" "),
-                  _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
-                    _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("もっと見る"),
-                    ]),
-                  ]),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "city.hours",
+                          params: { cityName: city.name },
+                        },
+                      },
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("もっと見る"),
+                      ]),
+                    ]
+                  ),
                 ],
                 1
               ),
