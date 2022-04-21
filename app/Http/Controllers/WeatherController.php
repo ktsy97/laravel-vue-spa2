@@ -7,28 +7,35 @@ use GuzzleHttp\Client;
 
 class WeatherController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
-        $cityName = 'Tokyo';
-        $apiKey = '43c7cb699eb50188a5cf9e3b3a131169';
-        $url = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=ja&q=$cityName&appid=$apiKey";
+        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
 
-        $method = "GET";
+        $cityNames = ['Tokyo', 'Osaka', 'Nagoya'];
 
-        $client = new Client();
+        $data = [];
 
-        $response = $client->request($method, $url);
+        foreach ($cityNames as $cityName) {
+            $url = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 
-        $data = $response->getBody();
-        $data = json_decode($data, true);
+            $method = "GET";
+
+            $client = new Client();
+
+            $response = $client->request($method, $url);
+
+            $data[] = json_decode($response->getBody(), true);
+        }
 
         return response()->json($data);
     }
 
-    public function show() {
+    public function show()
+    {
 
         $cityName = 'Tokyo';
-        $apiKey = '43c7cb699eb50188a5cf9e3b3a131169';
+        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
         $url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 
         $method = "GET";

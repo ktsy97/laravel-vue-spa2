@@ -5286,62 +5286,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     this.getCurrent();
   },
   data: function data() {
     return {
-      city: null,
-      //地域名
-      temp: null,
-      //気温
-      condition: {
-        main: null //天候名
-
-      }
+      cities: []
     };
   },
   methods: {
     getCurrent: function getCurrent() {
       axios.get("api/cities").then(function (response) {
-        this.city = response.data.name;
-        this.temp = response.data.main.temp;
-        this.condition = response.data.weather[0];
+        this.cities = response.data;
       }.bind(this))["catch"](function (error) {
         console.log(error);
       });
@@ -28287,151 +28244,46 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row row-cols-1 row-cols-md-2 g-4" }, [
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card text-center",
-            staticStyle: { "max-width": "36rem" },
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "card-body" },
-              [
-                _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(_vm.city)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：" + _vm._s(_vm.temp) + "°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v(_vm._s(_vm.condition.main)),
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("もっと見る"),
+    _c(
+      "div",
+      { staticClass: "row row-cols-1 row-cols-md-2 g-4" },
+      _vm._l(_vm.cities, function (city) {
+        return _c("div", { key: city.id, staticClass: "col" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card text-center",
+              staticStyle: { "max-width": "36rem" },
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                [
+                  _c("h5", { staticClass: "card-title mb-3" }, [
+                    _vm._v(_vm._s(city.name)),
                   ]),
-                ]),
-              ],
-              1
-            ),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card text-center",
-            staticStyle: { "max-width": "36rem" },
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "card-body" },
-              [
-                _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(_vm.city)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：" + _vm._s(_vm.temp) + "°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v(_vm._s(_vm.condition.main)),
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("もっと見る"),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mb-2" }, [
+                    _vm._v("気温：" + _vm._s(city.main.temp) + "°C"),
                   ]),
-                ]),
-              ],
-              1
-            ),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card text-center",
-            staticStyle: { "max-width": "36rem" },
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "card-body" },
-              [
-                _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(_vm.city)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：" + _vm._s(_vm.temp) + "°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v(_vm._s(_vm.condition.main)),
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("もっと見る"),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mb-2" }),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
+                    _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("もっと見る"),
+                    ]),
                   ]),
-                ]),
-              ],
-              1
-            ),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card text-center",
-            staticStyle: { "max-width": "36rem" },
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "card-body" },
-              [
-                _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(_vm.city)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：" + _vm._s(_vm.temp) + "°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v(_vm._s(_vm.condition.main)),
-                ]),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("もっと見る"),
-                  ]),
-                ]),
-              ],
-              1
-            ),
-          ]
-        ),
-      ]),
-    ]),
+                ],
+                1
+              ),
+            ]
+          ),
+        ])
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = []
