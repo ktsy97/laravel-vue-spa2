@@ -28268,7 +28268,9 @@ var render = function () {
                     _vm._v("気温：" + _vm._s(city.main.temp) + "°C"),
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text mb-2" }),
+                  _c("p", { staticClass: "card-text mb-2" }, [
+                    _vm._v(_vm._s(city.weather[0].main)),
+                  ]),
                   _vm._v(" "),
                   _c("router-link", { attrs: { to: { name: "city.hours" } } }, [
                     _c("button", { staticClass: "btn btn-success" }, [
