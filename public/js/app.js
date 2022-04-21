@@ -28252,7 +28252,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container mb-5" }, [
     _c(
       "div",
       { staticClass: "row row-cols-1 row-cols-md-2 g-4" },

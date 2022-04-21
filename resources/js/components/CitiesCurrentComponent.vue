@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
       <div class="col" v-for="(city) in cities" :key="city.id">
