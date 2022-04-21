@@ -5341,9 +5341,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    cityName: String
-  },
   created: function created() {
     this.getHours();
   },
@@ -5351,15 +5348,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       city: null,
       //地域名
-      list: [] // cityName: 'Nagoya',
-
+      list: []
     };
   },
   methods: {
     getHours: function getHours() {
       axios.get("api/hours", {
         params: {
-          cityName: this.cityName
+          cityName: this.$route.query.city
         }
       }).then(function (response) {
         this.city = response.data.city.name;
@@ -5455,8 +5451,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   }, {
     path: '/hour',
     name: 'city.hours',
-    component: _components_CityHoursComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
-    props: true
+    component: _components_CityHoursComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   }]
 });
 var app = new Vue({
@@ -28285,10 +28280,7 @@ var render = function () {
                     "router-link",
                     {
                       attrs: {
-                        to: {
-                          name: "city.hours",
-                          params: { cityName: city.name },
-                        },
+                        to: { name: "city.hours", query: { city: city.name } },
                       },
                     },
                     [

@@ -22,7 +22,6 @@ const router = new VueRouter({
             path: '/hour',
             name: 'city.hours',
             component: CityHoursComponent,
-            props: true,
         },
     ]
 });

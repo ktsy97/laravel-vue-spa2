@@ -29,8 +29,8 @@ class WeatherController extends Controller
     public function show(Request $request)
     {
 
-        $cityName = $request->input('cityName');
         $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
+        $cityName = $request->input('cityName');
         $url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 
         $method = "GET";
