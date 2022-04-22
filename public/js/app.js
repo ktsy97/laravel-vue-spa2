@@ -5286,6 +5286,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     this.getCurrent();
@@ -28259,31 +28265,48 @@ var render = function () {
   return _c("div", { staticClass: "container mb-5" }, [
     _c(
       "div",
-      { staticClass: "row row-cols-1 row-cols-md-2 g-4" },
+      { staticClass: "row row-cols-1 row-cols-md-3 g-4" },
       _vm._l(_vm.cities, function (city) {
         return _c("div", { key: city.id, staticClass: "col" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: { "max-width": "36rem" },
-            },
-            [
+          _c("div", { staticClass: "l-wrapper_06" }, [
+            _c("div", { staticClass: "city-card card text-center border-0" }, [
               _c(
                 "div",
-                { staticClass: "card-body" },
+                { staticClass: "city-card-body card-body" },
                 [
-                  _c("h5", { staticClass: "card-title mb-3" }, [
+                  _c("h5", { staticClass: "city-card-title card-title mb-3" }, [
                     _vm._v(_vm._s(city.name)),
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text mb-2" }, [
-                    _vm._v("気温：" + _vm._s(city.main.temp) + "°C"),
-                  ]),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "city-card-text card-text mb-2 text-secondary",
+                    },
+                    [
+                      _vm._v(
+                        "\n              気温：" +
+                          _vm._s(city.main.temp) +
+                          "°C\n            "
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text mb-2" }, [
-                    _vm._v(_vm._s(city.weather[0].main)),
-                  ]),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "city-card-text card-text mb-2 text-secondary",
+                    },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(city.weather[0].main) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "router-link",
@@ -28301,8 +28324,8 @@ var render = function () {
                 ],
                 1
               ),
-            ]
-          ),
+            ]),
+          ]),
         ])
       }),
       0

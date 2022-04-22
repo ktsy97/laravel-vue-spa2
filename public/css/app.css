@@ -11313,3 +11313,33 @@ textarea.form-control-lg {
 @media screen and (min-width: 720px) {
   /*  */
 }
+.l-wrapper_06 {
+  margin: 1rem auto;
+  width: 100%;
+}
+
+.l-wrapper_06:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 34px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s;
+}
+
+.city-card {
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.city-card-title {
+  transition: color 0.5s;
+}
+
+.city-card:hover .city-card-title {
+  color: #479f76;
+}
+
+.city-card-text {
+  transition: color 0.5s;
+}
+
+.city-card:hover .city-card-text {
+  color: #495057 !important;
+}
