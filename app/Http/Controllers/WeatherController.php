@@ -10,7 +10,7 @@ class WeatherController extends Controller
     public function index()
     {
 
-        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
+        $apiKey = config('services.weather.key');
         $cityNames = ['Sapporo', 'Sendai', 'Niigata', 'Tokyo', 'Nagoya', 'Osaka', 'Fukuoka', 'Naha'];
         $data = [];
 
@@ -29,7 +29,7 @@ class WeatherController extends Controller
     public function show(Request $request)
     {
 
-        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
+        $apiKey = config('services.weather.key');
         $cityName = $request->input('cityName');
         $url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 
