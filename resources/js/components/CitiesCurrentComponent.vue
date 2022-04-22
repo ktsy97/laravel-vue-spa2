@@ -1,43 +1,17 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
     <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
+      <div class="col" v-for="city in cities" :key="city.id">
         <div class="card text-center" style="max-width: 36rem">
           <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card text-center" style="max-width: 36rem">
-          <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card text-center" style="max-width: 36rem">
-          <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card text-center" style="max-width: 36rem">
-          <div class="card-body">
-            <h5 class="card-title mb-3">東京</h5>
-            <p class="card-text mb-2">気温：30&deg;C</p>
-            <p class="card-text mb-2">shine</p>
-            <button class="btn btn-success">もっと見る</button>
+            <h5 class="card-title mb-3">{{ city.name }}</h5>
+            <p class="card-text mb-2">気温：{{ city.main.temp }}&deg;C</p>
+            <p class="card-text mb-2">{{ city.weather[0].main }}</p>
+            <router-link
+              v-bind:to="{ name: 'city.hours', query: { city: city.name } }"
+            >
+              <button class="btn btn-success">もっと見る</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -51,11 +25,7 @@ export default {
   },
   data() {
     return {
-      city: null, //地域名
-      temp: null, //気温
-      condition: {
-        main: null, //天候名
-      },
+      cities: [],
     };
   },
   methods: {
@@ -64,9 +34,7 @@ export default {
         .get("api/cities")
         .then(
           function (response) {
-            this.city = response.data.name;
-            this.temp = response.data.main.temp;
-            this.condition = response.data.weather[0];
+            this.cities = response.data;
           }.bind(this)
         )
         .catch(function (error) {

@@ -5286,54 +5286,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     this.getCurrent();
   },
   data: function data() {
     return {
-      city: null,
-      //地域名
-      temp: null,
-      //気温
-      condition: {
-        main: null //天候名
-
-      }
+      cities: []
     };
   },
   methods: {
     getCurrent: function getCurrent() {
       axios.get("api/cities").then(function (response) {
-        this.city = response.data.name;
-        this.temp = response.data.main.temp;
-        this.condition = response.data.weather[0];
+        this.cities = response.data;
       }.bind(this))["catch"](function (error) {
         console.log(error);
       });
@@ -5388,7 +5353,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getHours: function getHours() {
-      axios.get("api/hours").then(function (response) {
+      axios.get("api/hours", {
+        params: {
+          cityName: this.$route.query.city
+        }
+      }).then(function (response) {
         this.city = response.data.city.name;
         this.list = response.data.list;
       }.bind(this))["catch"](function (error) {
@@ -5480,7 +5449,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     name: 'cities.current',
     component: _components_CitiesCurrentComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }, {
-    path: '/hours',
+    path: '/hour',
     name: 'city.hours',
     component: _components_CityHoursComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   }]
@@ -28278,118 +28247,60 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container mb-5" }, [
+    _c(
+      "div",
+      { staticClass: "row row-cols-1 row-cols-md-2 g-4" },
+      _vm._l(_vm.cities, function (city) {
+        return _c("div", { key: city.id, staticClass: "col" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card text-center",
+              staticStyle: { "max-width": "36rem" },
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                [
+                  _c("h5", { staticClass: "card-title mb-3" }, [
+                    _vm._v(_vm._s(city.name)),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mb-2" }, [
+                    _vm._v("気温：" + _vm._s(city.main.temp) + "°C"),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mb-2" }, [
+                    _vm._v(_vm._s(city.weather[0].main)),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "city.hours", query: { city: city.name } },
+                      },
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("もっと見る"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ]
+          ),
+        ])
+      }),
+      0
+    ),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row row-cols-1 row-cols-md-2 g-4" }, [
-        _c("div", { staticClass: "col" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: { "max-width": "36rem" },
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title mb-3" }, [_vm._v("東京")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：30°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("shine")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-success" }, [
-                  _vm._v("もっと見る"),
-                ]),
-              ]),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: { "max-width": "36rem" },
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title mb-3" }, [_vm._v("東京")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：30°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("shine")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-success" }, [
-                  _vm._v("もっと見る"),
-                ]),
-              ]),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: { "max-width": "36rem" },
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title mb-3" }, [_vm._v("東京")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：30°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("shine")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-success" }, [
-                  _vm._v("もっと見る"),
-                ]),
-              ]),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: { "max-width": "36rem" },
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title mb-3" }, [_vm._v("東京")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [
-                  _vm._v("気温：30°C"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("shine")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-success" }, [
-                  _vm._v("もっと見る"),
-                ]),
-              ]),
-            ]
-          ),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -28415,7 +28326,23 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c("h5", { staticClass: "mb-3 text-center" }, [_vm._v(_vm._s(_vm.city))]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.list, function (item) {
+          return _c("tr", { key: item.dt }, [
+            _c("td", [_vm._v(_vm._s(item.dt_txt))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.main.temp) + "°C")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.weather[0].main))]),
+          ])
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -28423,25 +28350,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "table" }, [
-      _c("thead", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("日時")]),
-          _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("気温")]),
-          _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("天候")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("td", [_vm._v("2022-4-20")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("30°C")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("shine")]),
-        ]),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("日時")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("気温")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("天候")]),
       ]),
     ])
   },

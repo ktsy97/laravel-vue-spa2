@@ -7,38 +7,37 @@ use GuzzleHttp\Client;
 
 class WeatherController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
-        $cityName = 'Tokyo';
-        $apiKey = '43c7cb699eb50188a5cf9e3b3a131169';
-        $url = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=ja&q=$cityName&appid=$apiKey";
+        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
+        $cityNames = ['Sapporo', 'Sendai', 'Niigata', 'Tokyo', 'Nagoya', 'Osaka', 'Fukuoka', 'Naha'];
+        $data = [];
 
         $method = "GET";
-
         $client = new Client();
 
-        $response = $client->request($method, $url);
-
-        $data = $response->getBody();
-        $data = json_decode($data, true);
+        foreach ($cityNames as $cityName) {
+            $url = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=ja&q=$cityName&appid=$apiKey";
+            $response = $client->request($method, $url);
+            $data[] = json_decode($response->getBody(), true);
+        }
 
         return response()->json($data);
     }
 
-    public function show() {
+    public function show(Request $request)
+    {
 
-        $cityName = 'Tokyo';
-        $apiKey = '43c7cb699eb50188a5cf9e3b3a131169';
+        $apiKey = '3374b7b2a891beb20ae377ab0a4441f8';
+        $cityName = $request->input('cityName');
         $url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&lang=ja&q=$cityName&appid=$apiKey";
 
         $method = "GET";
-
         $client = new Client();
 
         $response = $client->request($method, $url);
-
-        $data = $response->getBody();
-        $data = json_decode($data, true);
+        $data = json_decode($response->getBody(), true);
 
         return response()->json($data);
     }
