@@ -1,10 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
+
     <h5 class="mb-3 text-center">{{ city }}</h5>
-    <table class="table">
-      <thead>
+
+    <table class="table table-hover table-sm">
+      <thead class="table-light">
         <tr>
-          <th scope="col">日時</th>
+          <th scope="col" style="width: 50%">日時</th>
           <th scope="col">気温</th>
           <th scope="col">天候</th>
         </tr>
@@ -17,6 +19,7 @@
         </tr>
       </tbody>
     </table>
+    
   </div>
 </template>
 <script>
