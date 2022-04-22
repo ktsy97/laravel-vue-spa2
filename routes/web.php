@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/{any}', function () {
+        return view('app');
+    })->where('any', '.*');
+
+    Route::get('/api/cities', [App\Http\Controllers\WeatherController::class, 'index']);
+    Route::get('/api/hours', [App\Http\Controllers\WeatherController::class, 'show']);
+});
