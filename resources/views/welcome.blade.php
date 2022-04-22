@@ -50,12 +50,12 @@
         <a href="/login">Login</a>
         <a href="/register">Register</a>
         @else
-        <a href="/home">Home</a>
+        <a href="/cities">Start</a>
         @endguest
     </div>
 
     <span class="title">
-        laravel
+        {{ config('app.name', 'fortify-vue-bootstrap') }}
     </span>
 
     <script src="{{ mix('/js/app.js') }}" defer></script>
