@@ -11326,6 +11326,7 @@ textarea.form-control-lg {
 
 .city-card {
   box-shadow: 0 2px 5px #ccc;
+  max-width: 32rem;
 }
 
 .city-card-title {
