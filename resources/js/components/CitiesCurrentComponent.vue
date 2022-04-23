@@ -26,6 +26,11 @@
 </template>
 <script>
 export default {
+  mounted() {
+    const title = "一覧 | " + process.env.MIX_APP_NAME;
+    document.title = title;
+    document.querySelector("meta[property='og:title']");
+  },
   created() {
     this.getCurrent();
   },

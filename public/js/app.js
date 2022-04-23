@@ -5293,6 +5293,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    var title = "一覧 | " + "Vue-Laravel-Weather";
+    document.title = title;
+    document.querySelector("meta[property='og:title']");
+  },
   created: function created() {
     this.getCurrent();
   },
@@ -5347,9 +5352,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    var title = this.$route.query.city + " | " + "Vue-Laravel-Weather";
+    document.title = title;
+    document.querySelector("meta[property='og:title']");
+  },
   created: function created() {
     this.getHours();
   },
@@ -5424,7 +5432,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -10534,7 +10541,6 @@ enableDismissTrigger(Toast);
 defineJQueryPlugin(Toast);
 
 
-//# sourceMappingURL=bootstrap.esm.js.map
 
 
 /***/ }),
@@ -28466,19 +28472,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "button",
-    { staticClass: "btn btn-sm btn-primary" },
-    [
-      _c(
-        "router-link",
-        {
-          staticClass: "text-white text-decoration-none",
-          attrs: { to: { name: "cities.current" } },
-        },
-        [_vm._v("一覧")]
-      ),
-    ],
-    1
+    "router-link",
+    {
+      staticClass: "text-white text-decoration-none",
+      attrs: { to: { name: "cities.current" } },
+    },
+    [_c("button", { staticClass: "btn btn-sm btn-primary" }, [_vm._v("一覧")])]
   )
 }
 var staticRenderFns = []

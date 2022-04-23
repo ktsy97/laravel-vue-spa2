@@ -1,6 +1,5 @@
 <template>
   <div class="container mb-5">
-
     <h5 class="mb-3 text-center">{{ city }}</h5>
 
     <table class="table table-hover table-sm">
@@ -19,11 +18,15 @@
         </tr>
       </tbody>
     </table>
-    
   </div>
 </template>
 <script>
 export default {
+  mounted() {
+    const title = this.$route.query.city + " | " + process.env.MIX_APP_NAME;
+    document.title = title;
+    document.querySelector("meta[property='og:title']");
+  },
   created() {
     this.getHours();
   },

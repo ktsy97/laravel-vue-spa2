@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'fortify-vue-bootstrap') }}</title>
+    <title>{{ config('app.name', 'Vue-Laravel-Weather') }}</title>
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <style>
@@ -55,7 +55,7 @@
     </div>
 
     <span class="title">
-        {{ config('app.name', 'fortify-vue-bootstrap') }}
+        {{ config('app.name', 'Vue-Laravel-Weather') }}
     </span>
 
     <script src="{{ mix('/js/app.js') }}" defer></script>
