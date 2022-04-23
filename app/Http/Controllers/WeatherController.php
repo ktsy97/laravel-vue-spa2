@@ -11,7 +11,7 @@ class WeatherController extends Controller
     {
 
         $apiKey = config('services.weather.key');
-        $cityNames = ['Sapporo', 'Sendai', 'Niigata', 'Tokyo', 'Nagoya', 'Osaka', 'Fukuoka', 'Naha'];
+        $cityNames = ['Sapporo', 'Sendai', 'Niigata', 'Tokyo', 'Nagoya', 'Osaka', 'Hiroshima', 'Fukuoka', 'Naha'];
         $data = [];
 
         $method = "GET";
