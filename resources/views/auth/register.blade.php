@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('app')
+
+@section('title', 'register')
 
 @section('content')
 
@@ -16,6 +18,9 @@
 
             <form method="POST" action="{{ route('register') }}" class="mb-2">
                 @csrf
+
+                <!-- Equivalent to... -->
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="mb-2">
                     <label for="name">{{ __('Name') }}</label>
