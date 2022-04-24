@@ -19,6 +19,9 @@
             <form method="POST" action="{{ route('login') }}" class="mb-2">
                 @csrf
 
+                <!-- Equivalent to... -->
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                 <div class="mb-2">
                     <label for="email">{{ __('Email Address') }}</label>
                     <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" autocomplete="email" required autofocus>
