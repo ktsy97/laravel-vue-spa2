@@ -14,7 +14,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/cities',
+            path: '/',
             name: 'cities.current',
             component: CitiesCurrentComponent
         },
