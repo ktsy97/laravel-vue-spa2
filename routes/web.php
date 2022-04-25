@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('app');
     })->where('any', '.*');
 
+    route::post('/store', [App\Http\Controllers\LikeController::class, 'store']);
+
     Route::get('/api/cities', [App\Http\Controllers\WeatherController::class, 'index']);
     Route::get('/api/hours', [App\Http\Controllers\WeatherController::class, 'show']);
 });

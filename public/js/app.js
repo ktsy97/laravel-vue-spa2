@@ -5416,6 +5416,15 @@ __webpack_require__.r(__webpack_exports__);
       }.bind(this))["catch"](function (error) {
         console.log(error);
       });
+    },
+    like: function like() {
+      axios.post("/store", {
+        cityName: this.city
+      }).then(function (response) {
+        this.result = response.data.result;
+      }.bind(this))["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -28425,11 +28434,29 @@ var render = function () {
     _c("div", { staticClass: "d-flex align-items-center mb-2" }, [
       _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.city))]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "like-btn px-3" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-outline-danger",
+            on: { click: _vm.like },
+          },
+          [_vm._v("お気に入り解除")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-outline-primary",
+            on: { click: _vm.like },
+          },
+          [_vm._v("お気に入り登録")]
+        ),
+      ]),
     ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover table-sm" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "tbody",
@@ -28448,20 +28475,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "like-btn px-3" }, [
-      _c("button", { staticClass: "btn btn-sm btn-outline-danger" }, [
-        _vm._v("お気に入り解除"),
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-sm btn-outline-primary" }, [
-        _vm._v("お気に入り登録"),
-      ]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

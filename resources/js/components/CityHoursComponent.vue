@@ -5,8 +5,8 @@
       <h5 class="mb-0">{{ city }}</h5>
       <!-- お気に入りボタン -->
       <div class="like-btn px-3">
-        <button class="btn btn-sm btn-outline-danger">お気に入り解除</button>
-        <button class="btn btn-sm btn-outline-primary">お気に入り登録</button>
+        <button class="btn btn-sm btn-outline-danger" v-on:click="like">お気に入り解除</button>
+        <button class="btn btn-sm btn-outline-primary" v-on:click="like">お気に入り登録</button>
       </div>
     </div>
     <!-- テーブル -->
@@ -57,6 +57,20 @@ export default {
           function (response) {
             this.city = response.data.city.name;
             this.list = response.data.list;
+          }.bind(this)
+        )
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    like: function () {
+      axios
+        .post("/store", {
+          cityName: this.city,
+        })
+        .then(
+          function (response) {
+            this.result = response.data.result;
           }.bind(this)
         )
         .catch(function (error) {
