@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Like;
 use GuzzleHttp\Client;
 
 class WeatherController extends Controller
@@ -12,44 +13,40 @@ class WeatherController extends Controller
 
         switch ($request->input('area')) {
             case 1:
-                // 北海道
-                $cityNames = ['Wakkanai',  'Abashiri', 'Asahikawa', 'Sapporo', 'Kushiro', 'Obihiro', 'Muroran', 'Hakodate'];
+                // 北海道・東北
+                $cityNames = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'];
                 break;
             case 2:
-                // 東北
-                $cityNames = ['Aomori-ken', 'Iwate-ken', 'Miyagi-ken', 'Akita-ken', 'Yamagata-ken', 'Fukushima-ken'];
+                // 関東・甲信
+                $cityNames = ['茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '山梨県', '長野県'];
                 break;
             case 3:
-                // 関東・甲信
-                $cityNames = ['Ibaraki-ken', 'Tochigi-ken', 'Gunma-ken', 'Saitama-ken', 'Chiba-ken', 'Tokyo', 'Kanagawa-ken', 'Yamanashi-ken', 'Nagano-ken'];
+                // 北陸
+                $cityNames = ['新潟県', '富山県', '石川県', '福井県'];
                 break;
             case 4:
-                // 北陸
-                $cityNames = ['Niigata-ken', 'Toyama-ken', 'Ishikawa-ken', 'Fukui-ken'];
+                // 東海
+                $cityNames = ['愛知県', '岐阜県', '静岡県', '三重県'];
                 break;
             case 5:
-                // 東海
-                $cityNames = ['Aichi-ken', 'Gifu-ken', 'Shizuoka-ken', 'Mie-ken'];
+                // 近畿
+                $cityNames = ['大阪府', '兵庫県', '京都府', '滋賀県', '奈良県', '和歌山県'];
                 break;
             case 6:
-                // 近畿
-                $cityNames = ['Osaka-fu', 'Hyogo', 'Kyoto Prefecture', 'Shiga-ken', 'Nara-ken', 'Wakayama-ken'];
+                // 中国
+                $cityNames = ['広島県', '岡山県', '山口県', '島根県', '鳥取県'];
                 break;
             case 7:
-                // 中国
-                $cityNames = ['Hiroshima-ken', 'Okayama-ken', 'Yamaguchi-ken', 'Shimane-ken', 'Tottori-ken'];
+                // 四国
+                $cityNames = ['香川県', '徳島県', '愛媛県', '高知県'];
                 break;
             case 8:
-                // 四国
-                $cityNames = ['Kagawa', 'Tokushima-ken', 'Ehime-ken', 'Kochi Prefecture'];
-                break;
-            case 9:
                 // 沖縄
-                $cityNames = ['Fukuoka-ken', 'Saga-ken', 'Nagasaki-ken', 'Oita Prefecture', 'Kumamoto-ken', 'Miyazaki-ken', 'Kagoshima-ken', 'Okinawa-ken'];
+                $cityNames = ['福岡県', '佐賀県', '長崎県', '大分県', '熊本県', '宮崎県', '鹿児島県', '沖縄県'];
                 break;
             default:
-                // 全国
-                $cityNames = ['Sapporo', 'Sendai', 'Niigata', 'Tokyo', 'Nagoya', 'Osaka', 'Hiroshima', 'Fukuoka', 'Naha'];
+                // お気に入り
+                $cityNames = Like::pluck('city_name')->toArray();
                 break;
         }
 
