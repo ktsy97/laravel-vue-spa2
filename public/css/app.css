@@ -11313,6 +11313,10 @@ textarea.form-control-lg {
 @media screen and (min-width: 720px) {
   /*  */
 }
+.cities-select select {
+  max-width: 32rem;
+}
+
 .l-wrapper_06 {
   margin: 1rem auto;
   width: 100%;

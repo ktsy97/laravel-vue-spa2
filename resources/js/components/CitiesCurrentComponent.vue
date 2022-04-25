@@ -1,6 +1,23 @@
 <template>
   <div class="container mb-5">
+    <!-- セレクトボックス -->
+    <div class="d-flex justify-content-center cities-select">
+      <select class="form-select">
+        <option value="0">全国</option>
+        <option value="1">北海道</option>
+        <option value="2">東北</option>
+        <option value="3">関東・甲信</option>
+        <option value="4">北陸</option>
+        <option value="5">東海</option>
+        <option value="6">近畿</option>
+        <option value="7">中国</option>
+        <option value="8">四国</option>
+        <option value="9">九州・沖縄</option>
+      </select>
+    </div>
+    <!-- カード一覧 -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- カード -->
       <div class="col" v-for="city in cities" :key="city.id">
         <div class="l-wrapper_06">
           <div class="city-card card text-center border-0">

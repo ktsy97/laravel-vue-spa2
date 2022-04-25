@@ -5292,6 +5292,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = "一覧 | " + "Vue-Laravel-Weather";
@@ -28269,6 +28286,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mb-5" }, [
+    _vm._m(0),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row row-cols-1 row-cols-md-3 g-4" },
@@ -28338,7 +28357,40 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "d-flex justify-content-center cities-select" },
+      [
+        _c("select", { staticClass: "form-select" }, [
+          _c("option", { attrs: { value: "0" } }, [_vm._v("全国")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "1" } }, [_vm._v("北海道")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("東北")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("関東・甲信")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "4" } }, [_vm._v("北陸")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "5" } }, [_vm._v("東海")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "6" } }, [_vm._v("近畿")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "7" } }, [_vm._v("中国")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "8" } }, [_vm._v("四国")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "9" } }, [_vm._v("九州・沖縄")]),
+        ]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
