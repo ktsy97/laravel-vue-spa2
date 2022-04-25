@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-5">
     <div class="container">
 
-        <a class="navbar-brand" href="/">{{ config('app.name', 'Vue-Laravel-Weather') }}</a>
+        <span class="navbar-brand mb-0">{{ config('app.name', 'Vue-Laravel-Weather') }}</span>
         @auth
         <div class="me-auto">
             <link-component></link-component>
