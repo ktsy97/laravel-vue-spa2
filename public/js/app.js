@@ -28360,8 +28360,8 @@ var render = function () {
     _c(
       "div",
       { staticClass: "row row-cols-1 row-cols-md-3 g-4" },
-      _vm._l(_vm.cities, function (city) {
-        return _c("div", { key: city.id, staticClass: "col" }, [
+      _vm._l(_vm.cities, function (city, index) {
+        return _c("div", { key: index, staticClass: "col" }, [
           _c("div", { staticClass: "l-wrapper_06" }, [
             _c("div", { staticClass: "city-card card text-center border-0" }, [
               _c(
@@ -28479,8 +28479,8 @@ var render = function () {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.list, function (item) {
-          return _c("tr", { key: item.dt }, [
+        _vm._l(_vm.list, function (item, index) {
+          return _c("tr", { key: index }, [
             _c("td", [_vm._v(_vm._s(item.dt_txt))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.main.temp) + "°C")]),

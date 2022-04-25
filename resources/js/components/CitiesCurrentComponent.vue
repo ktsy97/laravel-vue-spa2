@@ -17,7 +17,7 @@
     <!-- カード一覧 -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- カード -->
-      <div class="col" v-for="city in cities" :key="city.id">
+      <div class="col" v-for="(city, index) in cities" :key="index">
         <div class="l-wrapper_06">
           <div class="city-card card text-center border-0">
             <div class="city-card-body card-body">
