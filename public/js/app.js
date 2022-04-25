@@ -5378,6 +5378,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = this.$route.query.city + " | " + "Vue-Laravel-Weather";
@@ -5391,7 +5399,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       city: null,
       //地域名
-      list: []
+      list: [],
+      result: null //いいね判定
+
     };
   },
   methods: {
@@ -28412,10 +28422,14 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mb-5" }, [
-    _c("h5", { staticClass: "mb-3 text-center" }, [_vm._v(_vm._s(_vm.city))]),
+    _c("div", { staticClass: "d-flex align-items-center mb-2" }, [
+      _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.city))]),
+      _vm._v(" "),
+      _vm._m(0),
+    ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover table-sm" }, [
-      _vm._m(0),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "tbody",
@@ -28434,6 +28448,20 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "like-btn px-3" }, [
+      _c("button", { staticClass: "btn btn-sm btn-outline-danger" }, [
+        _vm._v("お気に入り解除"),
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-sm btn-outline-primary" }, [
+        _vm._v("お気に入り登録"),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

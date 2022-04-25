@@ -1,7 +1,15 @@
 <template>
   <div class="container mb-5">
-    <h5 class="mb-3 text-center">{{ city }}</h5>
-
+    <div class="d-flex align-items-center mb-2">
+      <!-- 都市名 -->
+      <h5 class="mb-0">{{ city }}</h5>
+      <!-- お気に入りボタン -->
+      <div class="like-btn px-3">
+        <button class="btn btn-sm btn-outline-danger">お気に入り解除</button>
+        <button class="btn btn-sm btn-outline-primary">お気に入り登録</button>
+      </div>
+    </div>
+    <!-- テーブル -->
     <table class="table table-hover table-sm">
       <thead class="table-light">
         <tr>
@@ -34,6 +42,7 @@ export default {
     return {
       city: null, //地域名
       list: [],
+      result: null, //いいね判定
     };
   },
   methods: {
