@@ -1,14 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-5">
     <div class="container">
 
-        @guest
         <a class="navbar-brand" href="/">{{ config('app.name', 'Vue-Laravel-Weather') }}</a>
-        @else
-        <span class="navbar-brand mb-0">{{ config('app.name', 'Vue-Laravel-Weather') }}</span>
+        @auth
         <div class="me-auto">
             <link-component></link-component>
         </div>
-        @endguest
+        @endauth
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

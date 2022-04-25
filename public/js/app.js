@@ -5533,7 +5533,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   mode: 'history',
   routes: [{
-    path: '/cities',
+    path: '/',
     name: 'cities.current',
     component: _components_CitiesCurrentComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }, {
