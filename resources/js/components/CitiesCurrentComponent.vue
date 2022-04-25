@@ -2,7 +2,7 @@
   <div class="container mb-5">
     <!-- セレクトボックス -->
     <div class="d-flex justify-content-center cities-select">
-      <select class="form-select">
+      <select class="form-select" v-on:change="select">
         <option value="0">全国</option>
         <option value="1">北海道</option>
         <option value="2">東北</option>
@@ -54,12 +54,21 @@ export default {
   data() {
     return {
       cities: [],
+      val: "",
     };
   },
   methods: {
+    select: function (e) {
+      this.val = e.target.value;
+      this.getCurrent();
+    },
     getCurrent() {
       axios
-        .get("api/cities")
+        .get("api/cities", {
+          params: {
+            area: this.val,
+          },
+        })
         .then(
           function (response) {
             this.cities = response.data;
