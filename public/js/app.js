@@ -5308,7 +5308,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = "一覧 | " + "Vue-Laravel-Weather";
@@ -5378,11 +5377,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = this.$route.query.city + " | " + "Vue-Laravel-Weather";
     document.title = title;
     document.querySelector("meta[property='og:title']");
+    this.check();
   },
   created: function created() {
     this.getHours();
@@ -5391,7 +5411,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       city: null,
       //地域名
-      list: []
+      list: [],
+      result: null //いいね判定
+
     };
   },
   methods: {
@@ -5403,6 +5425,24 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         this.city = response.data.city.name;
         this.list = response.data.list;
+      }.bind(this))["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    like: function like() {
+      axios.post("/store", {
+        cityName: this.city
+      }).then(function (response) {
+        this.result = response.data.result;
+      }.bind(this))["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    check: function check() {
+      axios.post("/check", {
+        cityName: this.$route.query.city
+      }).then(function (response) {
+        this.result = response.data.result;
       }.bind(this))["catch"](function (error) {
         console.log(error);
       });
@@ -28297,25 +28337,23 @@ var render = function () {
   return _c("div", { staticClass: "container mb-5" }, [
     _c("div", { staticClass: "d-flex justify-content-center cities-select" }, [
       _c("select", { staticClass: "form-select", on: { change: _vm.select } }, [
-        _c("option", { attrs: { value: "0" } }, [_vm._v("全国")]),
+        _c("option", { attrs: { value: "0" } }, [_vm._v("お気に入り")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("北海道")]),
+        _c("option", { attrs: { value: "1" } }, [_vm._v("北海道・東北")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("東北")]),
+        _c("option", { attrs: { value: "2" } }, [_vm._v("関東・甲信")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("関東・甲信")]),
+        _c("option", { attrs: { value: "3" } }, [_vm._v("北陸")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "4" } }, [_vm._v("北陸")]),
+        _c("option", { attrs: { value: "4" } }, [_vm._v("東海")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "5" } }, [_vm._v("東海")]),
+        _c("option", { attrs: { value: "5" } }, [_vm._v("近畿")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "6" } }, [_vm._v("近畿")]),
+        _c("option", { attrs: { value: "6" } }, [_vm._v("中国")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "7" } }, [_vm._v("中国")]),
+        _c("option", { attrs: { value: "7" } }, [_vm._v("四国")]),
         _vm._v(" "),
-        _c("option", { attrs: { value: "8" } }, [_vm._v("四国")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "9" } }, [_vm._v("九州・沖縄")]),
+        _c("option", { attrs: { value: "8" } }, [_vm._v("九州・沖縄")]),
       ]),
     ]),
     _vm._v(" "),
@@ -28412,7 +28450,29 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mb-5" }, [
-    _c("h5", { staticClass: "mb-3 text-center" }, [_vm._v(_vm._s(_vm.city))]),
+    _c("div", { staticClass: "d-flex align-items-center mb-2" }, [
+      _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.city))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "like-btn px-3" }, [
+        _vm.result
+          ? _c(
+              "button",
+              {
+                staticClass: "like btn btn-sm btn-outline-danger",
+                on: { click: _vm.like },
+              },
+              [_vm._v("\n        お気に入り解除\n      ")]
+            )
+          : _c(
+              "button",
+              {
+                staticClass: "unlike btn btn-sm btn-outline-primary",
+                on: { click: _vm.like },
+              },
+              [_vm._v("\n        お気に入り登録\n      ")]
+            ),
+      ]),
+    ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover table-sm" }, [
       _vm._m(0),

@@ -3,16 +3,15 @@
     <!-- セレクトボックス -->
     <div class="d-flex justify-content-center cities-select">
       <select class="form-select" v-on:change="select">
-        <option value="0">全国</option>
-        <option value="1">北海道</option>
-        <option value="2">東北</option>
-        <option value="3">関東・甲信</option>
-        <option value="4">北陸</option>
-        <option value="5">東海</option>
-        <option value="6">近畿</option>
-        <option value="7">中国</option>
-        <option value="8">四国</option>
-        <option value="9">九州・沖縄</option>
+        <option value="0">お気に入り</option>
+        <option value="1">北海道・東北</option>
+        <option value="2">関東・甲信</option>
+        <option value="3">北陸</option>
+        <option value="4">東海</option>
+        <option value="5">近畿</option>
+        <option value="6">中国</option>
+        <option value="7">四国</option>
+        <option value="8">九州・沖縄</option>
       </select>
     </div>
     <!-- カード一覧 -->
