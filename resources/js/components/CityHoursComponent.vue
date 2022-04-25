@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in list" :key="item.dt">
+        <tr v-for="(item, index) in list" :key="index">
           <td>{{ item.dt_txt }}</td>
           <td>{{ item.main.temp }}&deg;C</td>
           <td>{{ item.weather[0].main }}</td>
