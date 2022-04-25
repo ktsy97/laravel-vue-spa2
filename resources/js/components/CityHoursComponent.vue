@@ -5,8 +5,20 @@
       <h5 class="mb-0">{{ city }}</h5>
       <!-- お気に入りボタン -->
       <div class="like-btn px-3">
-        <button class="btn btn-sm btn-outline-danger" v-on:click="like">お気に入り解除</button>
-        <button class="btn btn-sm btn-outline-primary" v-on:click="like">お気に入り登録</button>
+        <button
+          class="like btn btn-sm btn-outline-danger"
+          v-on:click="like"
+          v-if="result"
+        >
+          お気に入り解除
+        </button>
+        <button
+          class="unlike btn btn-sm btn-outline-primary"
+          v-on:click="like"
+          v-else
+        >
+          お気に入り登録
+        </button>
       </div>
     </div>
     <!-- テーブル -->
@@ -34,6 +46,7 @@ export default {
     const title = this.$route.query.city + " | " + process.env.MIX_APP_NAME;
     document.title = title;
     document.querySelector("meta[property='og:title']");
+    this.check();
   },
   created() {
     this.getHours();
@@ -67,6 +80,20 @@ export default {
       axios
         .post("/store", {
           cityName: this.city,
+        })
+        .then(
+          function (response) {
+            this.result = response.data.result;
+          }.bind(this)
+        )
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    check() {
+      axios
+        .post("/check", {
+          cityName: this.$route.query.city,
         })
         .then(
           function (response) {

@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     })->where('any', '.*');
 
     route::post('/store', [App\Http\Controllers\LikeController::class, 'store']);
+    route::post('/check', [App\Http\Controllers\LikeController::class, 'check']);
 
     Route::get('/api/cities', [App\Http\Controllers\WeatherController::class, 'index']);
     Route::get('/api/hours', [App\Http\Controllers\WeatherController::class, 'show']);

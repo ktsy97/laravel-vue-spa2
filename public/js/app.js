@@ -5385,11 +5385,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = this.$route.query.city + " | " + "Vue-Laravel-Weather";
     document.title = title;
     document.querySelector("meta[property='og:title']");
+    this.check();
   },
   created: function created() {
     this.getHours();
@@ -5419,6 +5432,15 @@ __webpack_require__.r(__webpack_exports__);
     like: function like() {
       axios.post("/store", {
         cityName: this.city
+      }).then(function (response) {
+        this.result = response.data.result;
+      }.bind(this))["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    check: function check() {
+      axios.post("/check", {
+        cityName: this.$route.query.city
       }).then(function (response) {
         this.result = response.data.result;
       }.bind(this))["catch"](function (error) {
@@ -28432,23 +28454,23 @@ var render = function () {
       _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.city))]),
       _vm._v(" "),
       _c("div", { staticClass: "like-btn px-3" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-outline-danger",
-            on: { click: _vm.like },
-          },
-          [_vm._v("お気に入り解除")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-outline-primary",
-            on: { click: _vm.like },
-          },
-          [_vm._v("お気に入り登録")]
-        ),
+        _vm.result
+          ? _c(
+              "button",
+              {
+                staticClass: "like btn btn-sm btn-outline-danger",
+                on: { click: _vm.like },
+              },
+              [_vm._v("\n        お気に入り解除\n      ")]
+            )
+          : _c(
+              "button",
+              {
+                staticClass: "unlike btn btn-sm btn-outline-primary",
+                on: { click: _vm.like },
+              },
+              [_vm._v("\n        お気に入り登録\n      ")]
+            ),
       ]),
     ]),
     _vm._v(" "),

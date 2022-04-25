@@ -14,19 +14,43 @@ class LikeController extends Controller
         $user = Auth::user();
 
         $like = Like::where([
-            ['user_id', '=', $user->id],
-            ['city_name', '=', $cityName]
-        ])->get();
+            ['user_id', $user->id],
+            ['city_name', $cityName]
+        ])->first();
 
-        if ($like->isEmpty()) {
+        if (!isset($like)) {
             $record = new Like();
             $record->fill(['city_name' => $cityName, 'user_id' => $user->id]);
             $record->save();
+            // 未登録の場合,falseからtrueに変更する
+            $result = true;
         } else {
-            Like::where([
-                ['user_id', '=', $user->id],
-                ['city_name', '=', $cityName]
-            ])->delete();
+            Like::destroy($like->id);
+            // 登録済みの場合,trueからfalseに変更する
+            $result = false;
         }
+
+        return response()->json(['result' => $result]);
+    }
+
+    public function check(Request $request)
+    {
+        $cityName = $request->input('cityName');
+        $user = Auth::user();
+
+        $like = Like::where([
+            ['user_id', $user->id],
+            ['city_name', $cityName]
+        ])->first();
+
+        if (!isset($like)) {
+            // 未登録の場合,falseを返す
+            $result = false;
+        } else {
+            // 登録済みの場合,trueを返す
+            $result = true;
+        }
+
+        return response()->json(['result' => $result]);
     }
 }
