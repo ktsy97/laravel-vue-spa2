@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Like;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 
 class WeatherController extends Controller
 {
     public function index(Request $request)
     {
+
+        $user = Auth::user();
 
         switch ($request->input('area')) {
             case 1:
@@ -46,7 +49,9 @@ class WeatherController extends Controller
                 break;
             default:
                 // お気に入り
-                $cityNames = Like::pluck('city_name')->toArray();
+                // $cityNames = Like::pluck('city_name')->toArray();
+                $collection = Like::where('user_id', $user->id)->get();
+                $cityNames = $collection->pluck('city_name')->toArray();
                 break;
         }
 
