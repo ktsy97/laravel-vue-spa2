@@ -10607,6 +10607,7 @@ enableDismissTrigger(Toast);
 defineJQueryPlugin(Toast);
 
 
+//# sourceMappingURL=bootstrap.esm.js.map
 
 
 /***/ }),
@@ -28363,62 +28364,71 @@ var render = function () {
       _vm._l(_vm.cities, function (city, index) {
         return _c("div", { key: index, staticClass: "col" }, [
           _c("div", { staticClass: "l-wrapper_06" }, [
-            _c("div", { staticClass: "city-card card text-center border-0" }, [
-              _c(
-                "div",
-                { staticClass: "city-card-body card-body" },
-                [
-                  _c("h5", { staticClass: "city-card-title card-title mb-3" }, [
-                    _vm._v(_vm._s(city.name)),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "city-card-text card-text mb-2 text-secondary",
-                    },
-                    [
-                      _vm._v(
-                        "\n              気温：" +
-                          _vm._s(city.main.temp) +
-                          "°C\n            "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "city-card-text card-text mb-2 text-secondary",
-                    },
-                    [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(city.weather[0].main) +
-                          "\n            "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { name: "city.hours", query: { city: city.name } },
+            _c(
+              "div",
+              { staticClass: "city-card card text-center border-0 bg-white" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "city-card-body card-body" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "city-card-title card-title mb-3" },
+                      [_vm._v(_vm._s(city.name))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "city-card-text card-text mb-2 text-secondary",
                       },
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-success" }, [
-                        _vm._v("もっと見る"),
-                      ]),
-                    ]
-                  ),
-                ],
-                1
-              ),
-            ]),
+                      [
+                        _vm._v(
+                          "\n              気温：" +
+                            _vm._s(city.main.temp) +
+                            "°C\n            "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "city-card-text card-text mb-2 text-secondary",
+                      },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(city.weather[0].main) +
+                            "\n            "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "city.hours",
+                            query: { city: city.name },
+                          },
+                        },
+                      },
+                      [
+                        _c("button", { staticClass: "btn btn-success" }, [
+                          _vm._v("もっと見る"),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
           ]),
         ])
       }),

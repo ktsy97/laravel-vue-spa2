@@ -19,7 +19,7 @@
       <!-- カード -->
       <div class="col" v-for="(city, index) in cities" :key="index">
         <div class="l-wrapper_06">
-          <div class="city-card card text-center border-0">
+          <div class="city-card card text-center border-0 bg-white">
             <div class="city-card-body card-body">
               <h5 class="city-card-title card-title mb-3">{{ city.name }}</h5>
               <p class="city-card-text card-text mb-2 text-secondary">
