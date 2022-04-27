@@ -5308,6 +5308,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var title = "一覧 | " + "Vue-Laravel-Weather";
@@ -28407,6 +28412,17 @@ var render = function () {
                         ),
                       ]
                     ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text mb-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "http://openweathermap.org/img/wn/" +
+                            city.weather[0].icon +
+                            ".png",
+                        },
+                      }),
+                    ]),
                     _vm._v(" "),
                     _c(
                       "router-link",

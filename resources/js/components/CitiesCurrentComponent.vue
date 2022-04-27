@@ -28,6 +28,11 @@
               <p class="city-card-text card-text mb-2 text-secondary">
                 {{ city.weather[0].main }}
               </p>
+              <p class="card-text mb-2">
+                <img
+                  :src="`http://openweathermap.org/img/wn/${city.weather[0].icon}.png`"
+                />
+              </p>
               <router-link
                 v-bind:to="{ name: 'city.hours', query: { city: city.name } }"
               >
