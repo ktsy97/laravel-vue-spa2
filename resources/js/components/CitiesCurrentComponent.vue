@@ -18,24 +18,30 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- カード -->
       <div class="col" v-for="(city, index) in cities" :key="index">
-        <div class="l-wrapper_06">
-          <div class="city-card card text-center border-0">
-            <div class="city-card-body card-body">
-              <h5 class="city-card-title card-title mb-3">{{ city.name }}</h5>
-              <p class="city-card-text card-text mb-2 text-secondary">
-                気温：{{ city.main.temp }}&deg;C
-              </p>
-              <p class="city-card-text card-text mb-2 text-secondary">
-                {{ city.weather[0].main }}
-              </p>
-              <router-link
-                v-bind:to="{ name: 'city.hours', query: { city: city.name } }"
-              >
-                <button class="btn btn-success">もっと見る</button>
-              </router-link>
+        <router-link
+          class="text-decoration-none"
+          v-bind:to="{ name: 'city.hours', query: { city: city.name } }"
+        >
+          <div class="l-wrapper_06">
+            <div class="city-card card text-center border-0 bg-white">
+              <div class="city-card-body card-body">
+                <h5 class="city-card-title card-title mb-3">{{ city.name }}</h5>
+                <p class="city-card-text card-text mb-2 text-secondary">
+                  気温：{{ city.main.temp }}&deg;C
+                </p>
+                <p class="city-card-text card-text mb-2 text-secondary">
+                  {{ city.weather[0].main }}
+                </p>
+                <p class="card-text mb-2">
+                  <img
+                    :src="`http://openweathermap.org/img/wn/${city.weather[0].icon}.png`"
+                  />
+                </p>
+                <div class="city-button rounded-pill">もっと見る</div>
+              </div>
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>

@@ -21,6 +21,7 @@
 }
 
 .city-card-title {
+  color: #212529;
   transition: color .5s;
 }
 
@@ -34,4 +35,17 @@
 
 .city-card:hover .city-card-text {
   color: #495057 !important;
+}
+
+.city-button {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #6c757d;
+  transition: color .5s;
+  transition: background-color .5s;
+}
+
+.city-card:hover .city-button {
+  color: #fff;
+  background-color: #badbcc;
 }
